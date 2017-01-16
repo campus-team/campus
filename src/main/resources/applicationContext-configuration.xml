@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+	
+	<!-- property-placeholder是一个属性遍历器，定位一个属性文件，属性文件存放的是一些常量配置属性-->
+    <context:property-placeholder location="classpath:config.properties" />    
+        
+    <!-- 配置数据源  这里class可以使用不同的驱动-->    
+    <bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+    	<property name="driverClassName" value="${driverClassName}"></property>   
+        <property name="url" value="${jdbc_url}" />    
+        <property name="username" value="${jdbc_username}" />    
+        <property name="password" value="${jdbc_password}" />  
+    </bean>    
+     
+    <!-- 配置hibernate session工厂 -->    
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">    
+        <property name="dataSource" ref="dataSource" />    
+        <property name="hibernateProperties">    
+            <props>    
+                <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>    
+                 <prop key="hibernate.dialect">${hibernate.dialect}</prop>   
+                <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>    
+                <prop key="hibernate.format_sql">${hibernate.format_sql}</prop>    
+                 <prop key="current_session_context_class">thread</prop>      
+                 <prop key="hibernate.connection.driver_class" >${driverClassName}</prop>   
+            </props>    
+        </property>    
+    
+        <!-- 自动扫描注解方式配置的hibernate类文件     -->
+        <property name="packagesToScan">    
+            <list>    
+                <value>com.campus.*</value>    
+            </list>    
+        </property>    
+    </bean>    
+      
+    <!-- 配置事务管理器 -->    
+    <bean name="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">    
+        <property name="sessionFactory" ref="sessionFactory"></property>    
+    </bean>      
+    
+    <!-- 注解方式配置事物 -->    
+    <tx:annotation-driven  transaction-manager="transactionManager" />
+    
+    <!-- 在指定包及其子包下，把标记了@Component、@Repository、@Service、@Controller等注解的类转换为bean -->
+	<context:component-scan base-package="com.campus" />
+    
+    <!-- 对模型视图名称的解析，即在模型视图名称添加前后缀 -->
+	<bean id="velocityCongfig"
+		class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+		<property name="resourceLoaderPath">
+			<value>/</value>
+		</property>
+		<property name="velocityProperties">
+			<props>
+				<prop key="input.encoding">UTF-8</prop>
+				<prop key="output.encoding ">UTF-8</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.velocity.VelocityView" />
+		<property name="contentType">
+			<value>text/html;charset=UTF-8</value>
+		</property>
+		<property name="suffix" value="" />            <!-- 视图文件类型      后缀-->  
+		<property name="prefix" value="/WEB-INF/views/" />  <!-- 视图文件的文件夹路径     前缀-->
+	</bean>
+</beans>

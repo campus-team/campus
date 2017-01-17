@@ -1,0 +1,30 @@
+html页面用的渲染模板是 velocity
+下面是一些简单语法
+假设后台传了一个字符串叫aaa,对应的值是111,
+
+前台取值：<span>$!aaa</span> 或者   <span>$!{aaa}</span>  或者    $aaa  
+显示:   <span>111</span>
+如果后台没有传aaa 那么  $aaa 将会显示  $aaa ，但$!aaa可以显示空 ,建议都加上感叹号
+ 
+假设后台传了一个对象obj,比如对应的是Article实体,对应是实体表在foundation.domain里,对象下的字段对应实体属性
+取文章名称:$!obj.title
+取文章类别名称: $!obj.articleClass.name
+
+前台赋值语句：
+#set($aaa = "111")   这样也可以取出$aaa的值，不必要时尽量不使用
+
+判读语句：
+#if($!aaa) 或者  #if($!aaa != "null")
+	这是不为空的语句
+#elseif($!aaa=="111")
+	aaa的值是111
+#end
+
+循环语句:(假设articles是一个包含3个Article的标题分别为111,222,333列表对象)
+#foreach($obj in $!articles)
+	<li><i>$!velocityCount</i>$!obj.title</li>   将显示三个<li></li>
+#end
+显示如下
+<li><i>1</i>111</li>
+<li><i>2</i>222</li>
+<li><i>3</i>333</li>

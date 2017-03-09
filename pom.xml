@@ -10,6 +10,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.version>4.3.5.RELEASE</spring.version>
+		<slf4j.version>1.7.2</slf4j.version>
 	</properties>
 
 	<dependencies>
@@ -99,6 +100,62 @@
 			<artifactId>aspectjweaver</artifactId>
 			<version>1.8.9</version>
 		</dependency>
+		<!-- ueditor -->
+		<dependency>
+			<groupId>com.baidu.ueditor</groupId>
+			<artifactId>ueditor</artifactId>
+			<version>1.1.1</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/webapp/WEB-INF/lib/ueditor-1.1.1.jar </systemPath>
+		</dependency>
+		<!-- tools -->
+		<!-- <dependency>
+			<groupId>org.json</groupId>
+		    <artifactId>json</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/webapp/WEB-INF/lib/json.jar </systemPath>
+		</dependency> -->
+		<dependency>
+		    <groupId>commons-fileupload</groupId>
+		    <artifactId>commons-fileupload</artifactId>
+		    <version>1.3.1</version>
+		</dependency>
+		<dependency>
+		    <groupId>commons-codec</groupId>
+		    <artifactId>commons-codec</artifactId>
+		    <version>1.10</version>
+		</dependency>
+		<dependency>
+		    <groupId>commons-beanutils</groupId>
+		    <artifactId>commons-beanutils</artifactId>
+		    <version>1.9.2</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.json</groupId>
+		    <artifactId>json</artifactId>
+		    <version>20160810</version>
+		</dependency>
+		<!-- LOGGING begin -->
+        <!-- slf4j -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <!-- slf4j-log4j绑定 -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+        <!-- LOGGING end -->
 	</dependencies>
 	<build>
 		<finalName>campus</finalName>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="$ctx/resource/plugin/snaker/css/snaker.css" type="text/css" media="all" />
+</head>
+<body>
+	<div id="toolbox">
+		<div id="toolbox_handle">工具集</div>
+		<div class="node" id="save">
+			<img src="$ctx/resource/plugin/snaker/images/save.gif" />&nbsp;&nbsp;保存
+		</div>
+		<div>
+			<hr />
+		</div>
+		<div class="node selectable" id="pointer">
+			<img src="$ctx/resource/plugin/snaker/images/select16.gif" />&nbsp;&nbsp;Select
+		</div>
+		<div class="node selectable" id="path">
+			<img src="$ctx/resource/plugin/snaker/images/16/flow_sequence.png" />&nbsp;&nbsp;transition
+		</div>
+		<div>
+			<hr />
+		</div>
+		<div class="node state" id="start" type="start">
+			<img src="$ctx/resource/plugin/snaker/images/16/start_event_empty.png" />&nbsp;&nbsp;start
+		</div>
+		<div class="node state" id="end" type="end">
+			<img src="$ctx/resource/plugin/snaker/images/16/end_event_terminate.png" />&nbsp;&nbsp;end
+		</div>
+		<div class="node state" id="task" type="task">
+			<img src="$ctx/resource/plugin/snaker/images/16/task_empty.png" />&nbsp;&nbsp;task
+		</div>
+		<div class="node state" id="task" type="custom">
+			<img src="$ctx/resource/plugin/snaker/images/16/task_empty.png" />&nbsp;&nbsp;custom
+		</div>
+		<div class="node state" id="task" type="subprocess">
+			<img src="$ctx/resource/plugin/snaker/images/16/task_empty.png" />&nbsp;&nbsp;subprocess
+		</div>
+		<div class="node state" id="fork" type="decision">
+			<img src="$ctx/resource/plugin/snaker/images/16/gateway_exclusive.png" />&nbsp;&nbsp;decision
+		</div>
+		<div class="node state" id="fork" type="fork">
+			<img src="$ctx/resource/plugin/snaker/images/16/gateway_parallel.png" />&nbsp;&nbsp;fork
+		</div>
+		<div class="node state" id="join" type="join">
+			<img src="$ctx/resource/plugin/snaker/images/16/gateway_parallel.png" />&nbsp;&nbsp;join
+		</div>
+	</div>
+
+	<div id="properties">
+		<div id="properties_handle">属性</div>
+		<table class="properties_all" cellpadding="0" cellspacing="0">
+		</table>
+		<div>&nbsp;</div>
+	</div>
+
+	<div id="snakerflow"></div>
+</body>
+<script type="text/javascript">
+	var _ctx = '$ctx';
+</script>
+<script type="text/javascript" src="$ctx/resource/plugin/requirejs/require.js"></script>
+<script type="text/javascript" src="$ctx/resource/js/require-config.js"></script>
+<script type="text/javascript">
+	require([ "./flow/process_designer"], function(page) {
+		var p = new page();
+		p.main();
+		window.page = p;
+		
+		$(function() {
+			var json = ""; //$!process
+			var model = "";
+			if (json) {
+				model = eval("(" + json + ")");
+			}
+			$('#snakerflow').snakerflow({
+				basePath : _ctx + "/resource/plugin/snaker/",
+				ctxPath : _ctx,
+				restore : model,
+				formPath : "forms/",
+				tools : {
+					save : {
+						onclick : function(data) {
+							p.saveModel(data);
+						}
+					}
+				}
+			});
+		});
+		
+		
+	});
+</script>
+</html>

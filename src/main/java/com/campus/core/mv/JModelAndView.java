@@ -14,14 +14,30 @@ import com.campus.core.tools.CommUtil;
  */
 public class JModelAndView extends ModelAndView{
 
+	public JModelAndView(String viewName, int type, HttpServletRequest request){
+		this(viewName, type, request, null);
+	}
+	
 	public JModelAndView(String viewName, int type, HttpServletRequest request, HttpServletResponse response){
 		if(type==0){
 			super.setViewName("web/"+viewName);
+		}else if(type==1){
+			super.setViewName("flow/"+viewName);
 		}
-		String webPath = CommUtil.getWebPath(request);
-		String contextPath = request.getContextPath().equals("/") ? "" : request.getContextPath();
-		super.addObject("webPath", webPath);
-		super.addObject("contextPath", contextPath);
+		if(request != null){
+			String ctx = CommUtil.getContextPath(request);
+			super.addObject("ctx", ctx);
+//			String webPath = CommUtil.getWebPath(request);
+//			super.addObject("webPath", webPath);
+		}
 		super.addObject("CommUtil", new CommUtil());
+	}
+	
+	public void setViewName(String viewName, int type) {
+		if(type==0){
+			super.setViewName("web/"+viewName);
+		}else if(type==1){
+			super.setViewName("flow/"+viewName);
+		}
 	}
 }

@@ -3,6 +3,9 @@ package com.campus.view.web.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +20,7 @@ import com.campus.foundation.service.IStudentService;
  * @author 刘汉升
  */
 @Controller
-public class IndexViewAction {
+public class IndexViewController {
 
 	@Autowired  
     private IStudentService studentService;
@@ -27,7 +30,7 @@ public class IndexViewAction {
 		ModelAndView mv = new JModelAndView("index.html",0 , request, response);
 		Student stu = this.studentService.getObjById(1);
 		mv.addObject("stu", stu); 
-		mv.addObject("aa", "测试"); 
+		mv.addObject("aa", "测试");
 		return mv;
 	}
 	

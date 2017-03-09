@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 /**
- * id标识类
+ * id标识类  实体类都将继承此类
  * @author 刘汉升
  *
  */

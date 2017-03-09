@@ -1,7 +1,5 @@
 package com.campus.core.dao;
 
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
 
 /**
  * 共同的数据操作类
@@ -37,6 +35,11 @@ public class CommonDAO implements ICommonDAO {
 	@Override
 	public boolean update(Object obj) {
 		return this.baseDAO.update(obj);
+	}
+
+	@Override
+	public Object getObjByProperty(String paramName, Object paramValue) {
+		return this.baseDAO.getObjByProperty(entityClass, paramName, paramValue);
 	}
 
 }

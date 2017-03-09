@@ -1,14 +1,8 @@
 package com.campus.foundation.service;
 
+import com.campus.core.service.ICommonService;
 import com.campus.foundation.domain.Student;
 
-public abstract interface IStudentService {
+public abstract interface IStudentService extends ICommonService<Student>{
 	
-	public abstract Student getObjById(long id);
-	
-	public abstract boolean save(Student obj);
-	
-	public abstract boolean delete(long id);
-	
-	public abstract boolean update(Student obj);
 }

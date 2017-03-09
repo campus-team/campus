@@ -1,7 +1,9 @@
 package com.campus.foundation.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.campus.core.domain.IdEntity;
@@ -12,9 +14,12 @@ import com.campus.core.domain.IdEntity;
  *
  */
 @Entity
-@Table(name="student")
+@Table(name="user_student")
 public class Student extends IdEntity{
 
+	@OneToOne(cascade = CascadeType.REMOVE)
+	private User user;
+	
 	/** 学号 */
 	private String number;
 	/** 姓名 */
@@ -27,6 +32,14 @@ public class Student extends IdEntity{
 	/** 手机号 */
 	private String phone;
 	
+	
+	
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	public String getNumber() {
 		return number;
 	}

@@ -34,18 +34,28 @@ public class CommUtil {
 	}
 	
 	/**
+	 * 获取请求的上下文路径
+	 * @author 刘汉升
+	 * @param request
+     * @return 上下文路径（/+项目名）
+	 */
+	public static String getContextPath(HttpServletRequest request){
+		String contextPath = request.getContextPath().equals("/") ? "" : request.getContextPath();
+		return contextPath;
+	}
+	
+	/**
      * 获取请求的绝对路径（URL去掉资源路径）
      * @author 刘汉升
      * @param request
      * @return 请求的绝对路径（协议+服务器名+端口+项目名）
      */
 	public static String getWebPath(HttpServletRequest request) {
-		String contextPath = request.getContextPath().equals("/") ? "" : request.getContextPath();
 		String url = "http://" + request.getServerName();
 			if (null2Int(Integer.valueOf(request.getServerPort())) != 80)
-				url = url + ":" + null2Int(Integer.valueOf(request.getServerPort())) + contextPath;
+				url = url + ":" + null2Int(Integer.valueOf(request.getServerPort())) + getContextPath(request);
 			else {
-				url = url + contextPath;
+				url = url + getContextPath(request);
 			}
 		return url;
 	}

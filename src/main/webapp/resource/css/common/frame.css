@@ -1,0 +1,31 @@
+@CHARSET "UTF-8";
+.panel-left{
+	width:150px;
+	float:left;
+	background-color:#ccc;
+}
+
+.panel-left-header{
+	width:100%;
+}
+
+.panel-left-body{
+	width:100%;
+}
+
+.folder{
+	
+}
+
+.folder .all-folder{
+	padding-left:10px;
+}
+
+.folder .first-level-folder{
+	padding-left:20px;
+}
+
+.folder .second-level-folder{
+	padding-left:30px;
+}
+

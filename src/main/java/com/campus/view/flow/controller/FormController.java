@@ -12,6 +12,11 @@ import com.campus.core.mv.JModelAndView;
 @RequestMapping("/form")
 public class FormController {
 
+	@RequestMapping("/form_list.htm")
+	public ModelAndView form_list(HttpServletRequest request){
+		JModelAndView mv = new JModelAndView("form_list.html", 1, request);
+		return mv;
+	}
 	@RequestMapping("/form_designer.htm")
 	public ModelAndView form_designer(HttpServletRequest request){
 		JModelAndView mv = new JModelAndView("form_designer.html", 1, request);

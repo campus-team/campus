@@ -4,7 +4,13 @@
 
 define(['jquery'],function($){
 	
-	var common = {};
+	var common = function(){}
+	
+	var method = {
+			
+	}
+	
+	common.prototype = method;
 	
 	return common;
 })

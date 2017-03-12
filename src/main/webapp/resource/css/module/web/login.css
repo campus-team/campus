@@ -1,0 +1,171 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	margin:0;
+	padding:0;
+	background:linear-gradient(#63A2EF, #FFF);
+}
+
+.advert {
+	width:400px;
+	height:400px;
+	margin:100px 200px;
+	display:inline-block;
+	border:1px #c3c3c3 solid;
+	float:left;
+	background:#FFF;
+	border-radius:8px;
+	box-shadow:4px 4px 2px 0px rgba(33,33,33,0.5);
+	position:relative;
+}
+
+.advert ul {
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+
+.advert_image li {
+	display:none;
+}
+
+.advert img {
+	border-radius:8px;
+	z-index:-1;
+}
+
+.bottom {
+	position:absolute;
+	top:375px;
+}
+
+.bottom li {
+	width:20px;
+	height:20px;
+	margin-right:10px;
+	background-image:url(../../../img/module/web/select.png);
+	float:left;
+	cursor:pointer;
+	opacity:0.6;
+}
+
+.bottom >:last-child {
+	margin-right:0;
+}
+
+.selected {
+	background-position:-25px;
+}
+
+.main {
+	width:350px;
+	height:400px;
+	margin:100px 50px;
+	border:1px #c3c3c3 solid;
+	border-radius:8px;
+	box-shadow:4px 4px 2px 0px rgba(33,33,33,0.5); 
+	float:left;
+	font-family:'楷体';
+	background:linear-gradient(#E8F2FD, #FFF);
+}
+
+.title {
+	width:250x;
+	height:64px;
+	margin-top:50px;
+	margin-left:35px;
+	margin-bottom:20px;
+}
+
+.title span {
+	vertical-align:top;
+	font-size:1.6em;
+	display:inline-block;
+	height:34px;
+	padding:15px;
+	padding-right:0;
+}
+
+form {
+	margin:20px 50px;
+	margin-right:0;
+}
+
+label {
+	cursor:pointer;
+}
+
+form img {
+	width:32px;
+	padding:5px;
+	box-sizing:border-box;
+	border:1px #c3c3c3 solid;
+	margin-left:20px;
+	margin-right:-1px;
+	margin-bottom:15px;
+}
+
+#userName, #password {
+	padding:5px;
+	height:32px;
+	width:170px;
+	box-sizing:border-box;
+	vertical-align:top;
+	margin-right:50px;
+}
+
+#userName:focus, #password:focus {
+	background-color:#E2EDFC;
+}
+
+input[type="radio"] {
+	margin-left:20px;
+	margin-right:5px;
+}
+
+#submit{
+	margin-top:15px;
+	margin-left:25px;
+	width:190px;
+	height:35px;
+	border-radius:10px;
+	background-color:#0079F2;
+	border:2px #44A2FF solid;
+	font-size:1.2em;
+	cursor:pointer;
+	font-family:'宋体';
+	font-weight:bold;
+	color:#FFF;
+}
+
+.other {
+	margin:40px 50px;
+}
+
+.other ul {
+	margin:0;
+	padding:0;
+}
+
+.other ul li {
+	display:inline-block;
+	float:left;
+	border-left:1px #000000 solid;
+	text-align:center;
+	padding:0 6px;
+}
+
+.other ul>:first-child {
+	margin-left:8px;
+	border:none;
+}
+
+a {
+	text-decoration:none;
+}
+
+a:hover {
+	text-decoration:underline;
+	color:#F60;
+}

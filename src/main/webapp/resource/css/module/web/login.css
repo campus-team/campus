@@ -106,7 +106,7 @@ form img {
 	margin-bottom:15px;
 }
 
-#userName, #password {
+#username, #password {
 	padding:5px;
 	height:32px;
 	width:170px;
@@ -115,7 +115,7 @@ form img {
 	margin-right:50px;
 }
 
-#userName:focus, #password:focus {
+#username:focus, #password:focus {
 	background-color:#E2EDFC;
 }
 
@@ -163,6 +163,7 @@ input[type="radio"] {
 
 a {
 	text-decoration:none;
+	color:#000;
 }
 
 a:hover {

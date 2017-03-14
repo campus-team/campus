@@ -12,6 +12,25 @@ define(['jquery'],function($){
 	
 	var main = function(){
 		handle_event();
+		$(function() {
+			var current = -1;
+			var num = $(".advert>ul>li").length;
+			var $advert_li = $(".advert>ul>li");
+			
+			function advert() {
+				current = (current + 1) % num;
+				$advert_li.eq(current).fadeIn(1000).delay(5000).fadeOut(500,advert);
+			}
+			advert();
+			
+			$(".advert span").click(function () {
+				$advert_li.eq(current).hide().stop(true,false);
+				if($(this).attr("class") == "pre") {
+					current = (current - 2 + num) % num;
+				}
+				advert();
+			});
+		})
 	}
 	
 	// 监听事件的处理

@@ -2,6 +2,7 @@ package com.campus.foundation.service.impl;
 
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.campus.core.service.impl.CommonServiceImpl;
 import com.campus.foundation.domain.User;

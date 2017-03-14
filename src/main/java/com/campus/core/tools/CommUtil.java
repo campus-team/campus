@@ -4,29 +4,12 @@ import java.io.File;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 /**
  * 公共工具类
  * @author:刘汉升
  */
 public class CommUtil {
 
-	private static final Logger log = LoggerFactory.getLogger(CommUtil.class);
-	
-	private static CommUtil instance = new CommUtil();
-	
-	private CommUtil(){}
-	
-	/**
-	 * 单例模式
-	 * @return
-	 */
-	public static CommUtil getInstance(){
-		return instance;
-	}
-	
 	/**
     * 判断对象是否为null或者空字符串
     * @author:刘汉升
@@ -34,11 +17,6 @@ public class CommUtil {
 	public static boolean isNotNull(Object obj)
 	{
 	   return (obj != null) && (!obj.toString().equals(""));
-	}
-	
-	public static boolean isNull(Object obj)
-	{
-	   return (obj == null) || (obj.toString().equals(""));
 	}
 	
 	/**
@@ -51,7 +29,6 @@ public class CommUtil {
 		try{
 			value = Integer.parseInt(obj.toString());
 		}catch(Exception e){
-			log.info("整型转换错误", e);
 		}
 	    return value;
 	}
@@ -93,7 +70,7 @@ public class CommUtil {
 	    	// 随便填一个class类
 	        return Class.forName("com.campus.core.domain.IdEntity").getResource("/").getPath();
 	    } catch (Exception e) {
-	    	log.info("获取classpath错误", e);
+	        e.printStackTrace();
 	    }
 	    return "";
 	}
@@ -109,7 +86,7 @@ public class CommUtil {
 	        String webInfoPath = new File(classpath).getParent();// WEB-INF 目录的物理路径
 	        return new File(webInfoPath).getParent();// WebRoot 目录的物理路径
 	    } catch (Exception e) {
-	    	log.info("获取WebRoot根目录错误", e);
+	        e.printStackTrace();
 	    }
 	    return "";
 	}

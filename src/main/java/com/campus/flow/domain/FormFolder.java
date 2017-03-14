@@ -27,7 +27,7 @@ public class FormFolder extends IdEntity{
 	@ManyToOne
 	private FormFolder parent;
 	// 子文件夹
-	@OneToMany(mappedBy="parent")
+	@OneToMany
 	private List<FormFolder> children = new ArrayList<FormFolder>();
 	
 	public String getName() {

@@ -23,8 +23,6 @@ public class JModelAndView extends ModelAndView{
 			super.setViewName("web/"+viewName);
 		}else if(type==1){
 			super.setViewName("flow/"+viewName);
-		}else if(type==10){
-			super.setViewName("user/"+viewName);
 		}
 		if(request != null){
 			String ctx = CommUtil.getContextPath(request);
@@ -32,7 +30,7 @@ public class JModelAndView extends ModelAndView{
 //			String webPath = CommUtil.getWebPath(request);
 //			super.addObject("webPath", webPath);
 		}
-		super.addObject("CommUtil", CommUtil.getInstance());
+		super.addObject("CommUtil", new CommUtil());
 	}
 	
 	public void setViewName(String viewName, int type) {
@@ -40,8 +38,6 @@ public class JModelAndView extends ModelAndView{
 			super.setViewName("web/"+viewName);
 		}else if(type==1){
 			super.setViewName("flow/"+viewName);
-		}else if(type==10){
-			super.setViewName("user/"+viewName);
 		}
 	}
 }

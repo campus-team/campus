@@ -3,6 +3,7 @@ define('jquery',function($){
 	var page = function(){}
 	
 	var DOM = {
+<<<<<<< HEAD
 		form_folder_add_btn: $('.form_folder_add_btn'),
 		form_folder_name: $('form_folder_name'),
 		form_folder_sequence: $('form_folder_sequence')
@@ -41,6 +42,23 @@ define('jquery',function($){
 			}
 		});
 	}
+=======
+		btn_form_folder_add: $('.btn_form_folder_add')
+	}
+	
+	var main = function(){
+		
+	}
+	
+	function handleEvent(){
+		DOM.btn_form_folder_add.bind('click',function(){
+			
+		});
+		
+	}
+	
+	//function
+>>>>>>> branch 'master' of https://github.com/campus-team/campus.git
 	
 	var method = {
 			main: main,

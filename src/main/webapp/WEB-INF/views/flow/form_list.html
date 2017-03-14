@@ -15,13 +15,20 @@
 			<div class="folder">
 				<a class="all-folder">所有文件夹</a>
 				<ul>
+					#foreach($first_folder in $!first_folders)
 					<li>
-						<a class="first-level-folder">一级文件夹</a>
+						<a class="first-level-folder">$!first_folder.name</a>
 						<ul>
+							#foreach($second_folder in $!first_folder.children)
 							<li>
-								<a class="second-level-folder">二级文件夹</a>
+								<a class="second-level-folder">$!second_folder.name</a>
 							<li>
+							#end
 						</ul>
+					</li>
+					#end
+					<!-- <li>
+						<a class="first-level-folder">一级文件夹</a>
 						<ul>
 							<li>
 								<a class="second-level-folder">二级文件夹</a>
@@ -30,15 +37,7 @@
 					</li>
 					<li>
 						<a class="first-level-folder">一级文件夹</a>
-						<ul>
-							<li>
-								<a class="second-level-folder">二级文件夹</a>
-							<li>
-						</ul>
-					</li>
-					<li>
-						<a class="first-level-folder">一级文件夹</a>
-					</li>
+					</li> -->
 				</ul>
 			</div>
 		</div>
@@ -58,6 +57,19 @@
 		</form>
 =======
 >>>>>>> branch 'master' of https://github.com/campus-team/campus.git
+	</div>
+	<div>
+		<form action="$ctx/form_folder/form_folder_save.htm" method="post">
+			<input id="name" name="name" placeholder="输入文件名称"/>
+			<input id="sequence" name="sequence" placeholder="输入文件名称"/>
+			<select name="parent_id" >
+				<option value="">请选择</option>
+				#foreach($first_folder in $!first_folders)
+				<option value="$!first_folder.id">$!first_folder.name</option>
+				#end
+			</select>
+			<button type="button" class="btn_form_folder_add">提交</button>
+		</form>
 	</div>
 	<table border="0" algin="center" cellpadding="0" cellspacing="0">
 		<th>

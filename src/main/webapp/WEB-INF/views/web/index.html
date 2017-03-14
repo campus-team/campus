@@ -6,76 +6,89 @@
 <link rel="stylesheet" href="$ctx/resource/css/module/web/index.css" />
 </head>
 <body>
-<header id="top">
-<img src="$ctx/resource/img/module/web/logo2.png"/><span class="title">学生组织协同工作</span>
-<div class="nav">
-  <ul>
-    <li><img src="$ctx/resource/img/module/web/example2.png" />个人办公</li>
-    <li><img src="$ctx/resource/img/module/web/example2.png" />流程管理</li>
-    <li><img src="$ctx/resource/img/module/web/example2.png" />用户管理</li>
-  </ul>
-</div>
-<input type="image" src="$ctx/resource/img/module/web/search.png" value="搜索" /><input type="searcf" placeholder="全文搜索" />
-<ul>
-  <li><a href="$ctx/index.htm">首页</a></li>
-  <li><a href="$ctx/user/home.htm">我的</a></li>
-</ul>
-</header>
+	<header id="top">
+		<img src="$ctx/resource/img/module/web/logo2.png" /><span
+			class="title">学生组织协同工作</span>
+		<div class="nav">
+			<ul>
+				<li><img src="$ctx/resource/img/module/web/example2.png" />个人办公</li>
+				<li><img src="$ctx/resource/img/module/web/example2.png" />流程管理</li>
+				<li><img src="$ctx/resource/img/module/web/example2.png" />用户管理</li>
+			</ul>
+		</div>
+		<input type="image" src="$ctx/resource/img/module/web/search.png"
+			value="搜索" /><input type="searcf" placeholder="全文搜索" />
+		<ul>
+			<li><a href="$ctx/index.htm">首页</a></li>
+			<li><a href="$ctx/my/home.htm">我的</a></li>
+		</ul>
+	</header>
+	<div class="advert">
+		<ul>
+			<li><img src="$ctx/resource/img/module/web/hzic.jpg" /></li>
+			<li><img src="$ctx/resource/img/module/web/pku.jpg" /></li>
+			<li><img src="$ctx/resource/img/module/web/zju.jpg" /></li>
+			<li><img src="$ctx/resource/img/module/web/tsinghua.jpg" /></li>
+		</ul>
+		<span class="pre"><img
+			src="$ctx/resource/img/module/web/pre.png" /></span> <span class="next"><img
+			src="$ctx/resource/img/module/web/next.png" /></span>
+	</div>
 
-<div class="advert">
-  <ul>
-    <li><img src="$ctx/resource/img/module/web/hzic.jpg" /></li>
-    <li><img src="$ctx/resource/img/module/web/pku.jpg" /></li>
-    <li><img src="$ctx/resource/img/module/web/zju.jpg" /></li>
-    <li><img src="$ctx/resource/img/module/web/tsinghua.jpg" /></li>
-  </ul>
-  <span class="pre"><img src="$ctx/resource/img/module/web/pre.png" /></span>
-  <span class="next"><img src="$ctx/resource/img/module/web/next.png" /></span>
-</div>
+	<div class="main">
+		<div class="left">
+			<h3>最新动态</h3>
+			<ul>
+				<li><p>aaaaaaaa</p>
+					<span>11-11</span></li>
+				<li><p>bbbbbbbb</p>
+					<span>11-10</span></li>
+				<li><p>cccccccc</p>
+					<span>11-09</span></li>
+				<li><p>dddddddd</p>
+					<span>11-08</span></li>
+			</ul>
+		</div>
+		<div class="right">
+			<h3>公示公告</h3>
+			<ul>
+				<li><p>aaaaaaaa</p>
+					<span>11-11</span></li>
+				<li><p>bbbbbbbb</p>
+					<span>11-10</span></li>
+				<li><p>cccccccc</p>
+					<span>11-09</span></li>
+				<li><p>dddddddd</p>
+					<span>11-08</span></li>
+			</ul>
+		</div>
+	</div>
 
-<div class="main">
-  <div class="left">
-    <h3>最新动态</h3>
-    <ul>
-      <li><p>aaaaaaaa</p><span>11-11</span></li>
-      <li><p>bbbbbbbb</p><span>11-10</span></li>
-      <li><p>cccccccc</p><span>11-09</span></li>
-      <li><p>dddddddd</p><span>11-08</span></li>
-    </ul>
-  </div>
-  <div class="right">
-    <h3>公示公告</h3>
-    <ul>
-      <li><p>aaaaaaaa</p><span>11-11</span></li>
-      <li><p>bbbbbbbb</p><span>11-10</span></li>
-      <li><p>cccccccc</p><span>11-09</span></li>
-      <li><p>dddddddd</p><span>11-08</span></li>
-    </ul>
-  </div>
-</div>
+	<footer>
+		<nav>
+			<ul>
+				<li><a href="#">联系我们</a></li>
+				<li><a href="#">常见问题</a></li>
+				<li><a href="#">意见反馈</a></li>
+			</ul>
+		</nav>
+		<p>
+			<small>Copyright &copy; campus.com</small>
+		</p>
+	</footer>
 
-<footer>
-  <nav>
-    <ul>
-      <li><a href="#">联系我们</a></li>
-      <li><a href="#">常见问题</a></li>
-      <li><a href="#">意见反馈</a></li>
-    </ul>
-  </nav>
-  <p><small>Copyright &copy; campus.com</small></p>
-</footer>
-
-<script type="text/javascript">
-	var _ctx = '$ctx';
-</script>
-<script type="text/javascript"  src="$ctx/resource/plugin/requirejs/require.js"></script>
-<script type="text/javascript" src="$ctx/resource/js/require-config.js"></script>
-<script type="text/javascript">
-	require(["./web/index"],function(page){
-		var p = new page();
-		p.main();
-		window.page = p;
-	});
-</script>
+	<script type="text/javascript">
+		var _ctx = '$ctx';
+	</script>
+	<script type="text/javascript"
+		src="$ctx/resource/plugin/requirejs/require.js"></script>
+	<script type="text/javascript" src="$ctx/resource/js/require-config.js"></script>
+	<script type="text/javascript">
+		require([ "./web/index" ], function(page) {
+			var p = new page();
+			p.main();
+			window.page = p;
+		});
+	</script>
 </body>
 </html>

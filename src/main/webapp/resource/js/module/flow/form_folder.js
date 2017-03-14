@@ -3,7 +3,6 @@ define('jquery',function($){
 	var page = function(){}
 	
 	var DOM = {
-<<<<<<< HEAD
 		form_folder_add_btn: $('.form_folder_add_btn'),
 		form_folder_name: $('form_folder_name'),
 		form_folder_sequence: $('form_folder_sequence')
@@ -18,6 +17,8 @@ define('jquery',function($){
 			var name = DOM.form_folder_name.val();
 			var sequence = DOM.form_folder_sequence.val();
 			var post_data = {'name':name,'sequence':sequence};
+			var url = 'form_folder/form_folder_save.htm';
+			ajax_form_folder(url, post_data);
 		});
 		
 	}
@@ -42,23 +43,6 @@ define('jquery',function($){
 			}
 		});
 	}
-=======
-		btn_form_folder_add: $('.btn_form_folder_add')
-	}
-	
-	var main = function(){
-		
-	}
-	
-	function handleEvent(){
-		DOM.btn_form_folder_add.bind('click',function(){
-			
-		});
-		
-	}
-	
-	//function
->>>>>>> branch 'master' of https://github.com/campus-team/campus.git
 	
 	var method = {
 			main: main,

@@ -76,15 +76,18 @@
 		<property name="suffix" value="" />            <!-- 视图文件类型      后缀-->  
 		<property name="prefix" value="/WEB-INF/views/" />  <!-- 视图文件的文件夹路径     前缀-->
 	</bean>
-	
+	<!-- 配置拦截的异常
+	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">  
+	        <props>  
+	            <prop key="com.campus.core.exception.BusinessException">error/error</prop>  
+	            <prop key="java.lang.Exception">error/error</prop>  
+	        </props>  
+	    </property>  
+	</bean>
+	--> 
 	<!--统一的异常处理 -->  
 	<bean id="exceptionResolver"       
 	        class="com.campus.core.exception.handler.SimpleExceptionHandler">  
-	    <!-- <property name="exceptionMappings">  
-	        <props>  
-	            <prop key="com.cisdi.ecis.common.exception.BusinessException">error/error</prop>  
-	            <prop key="java.lang.Exception">error/error</prop>  
-	        </props>  
-	    </property>   -->
 	</bean>
 </beans>

@@ -1,4 +1,8 @@
 package com.campus.core.dao;
+
+import java.util.List;
+import java.util.Map;
+
 /**
  * 通用的数据访问对象接口
  * @author 刘汉升
@@ -41,5 +45,23 @@ public abstract interface ICommonDAO {
 	 * @return
 	 */
 	public abstract Object getObjByProperty(String paramName, Object paramValue);
+	
+	/**
+	 * 查询对象列表
+	 * @param queryStr 查询的hql
+	 * @param params 参数值对
+	 * @param begin 记录开始的位置
+	 * @param max  取出记录条数
+	 * @return
+	 */
+	public abstract List query(String queryStr, Map params, int begin, int max);
+	
+	/**
+	 * 查询总的结果数
+	 * @param queryStr 查询的hql
+	 * @param params 参数值对
+	 * @return
+	 */
+	public abstract int queryTotalRows(String queryStr, Map params);
 	
 }

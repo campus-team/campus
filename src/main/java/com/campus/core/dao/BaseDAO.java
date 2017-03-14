@@ -95,21 +95,38 @@ public class BaseDAO {
 		return null;
 	}
 	
-	public List query(final Class<?> clazz, final String queryStr, final Map params, final int begin, final int max){
+	public List query(final String queryStr, final Map params, final int begin, final int max){
 		session = getSession();
 		Query query = session.createQuery(queryStr);
-		Iterator entrySetIterator = params.entrySet().iterator();
-		while(entrySetIterator.hasNext()){
-			Map.Entry entry = (Map.Entry)entrySetIterator.next();
-			String key = entry.getKey().toString();
-			Object value = entry.getValue();
-			query.setParameter(key, value);
+		if(params!=null){
+			Iterator entrySetIterator = params.entrySet().iterator();
+			while(entrySetIterator.hasNext()){
+				Map.Entry entry = (Map.Entry)entrySetIterator.next();
+				String key = entry.getKey().toString();
+				Object value = entry.getValue();
+				query.setParameter(key, value);
+			}
 		}
 		if(begin>=0 && max>=0){
 			query.setFirstResult(begin);
 			query.setMaxResults(max);
 		}
 		return query.list();
+	}
+	
+	public int queryTotalRows(final String queryStr, final Map params){
+		session = getSession();
+		Query query = session.createQuery(queryStr);
+		if(params!=null){
+			Iterator entrySetIterator = params.entrySet().iterator();
+			while(entrySetIterator.hasNext()){
+				Map.Entry entry = (Map.Entry)entrySetIterator.next();
+				String key = entry.getKey().toString();
+				Object value = entry.getValue();
+				query.setParameter(key, value);
+			}
+		}
+		return ((Number)query.uniqueResult()).intValue();
 	}
 	
 	public Session getSession(){

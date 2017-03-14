@@ -29,7 +29,7 @@ define(['jquery'],function($){
 			
 		    $("#left nav>ul>li>ul").parent().click(function() {
 				if($(this).children("ul").is(":visible")) {
-					$(this).children("ul").slideUp(500).parent().css("padding-bottom","6px").children("img.arrow").attr("src",_ctx+"/resource/img/module/web/right.png");
+					$(this).children("ul").slideUp(500).parent().css("padding-bottom","10px").children("img.arrow").attr("src",_ctx+"/resource/img/module/web/right.png");
 				} else {
 					$(this).children("ul").slideDown(500).parent().css("padding-bottom", "0").children("img.arrow").attr("src",_ctx+"/resource/img/module/web/down.png");
 				}

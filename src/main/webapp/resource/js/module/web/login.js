@@ -17,12 +17,13 @@ define(['jquery'],function($){
 			var current = -1;
 			var $advert_image = $(".advert_image");
 			var length = $advert_image.children().length;
+				
 			for (var i = 0; i < length; i ++) {
 				$advert_image.next().append("<li></li>");
 			}
 			
 			$(".bottom").css("left",205-15*length+"px");
-		
+
 			function advert() {
 				current = (current+1)%length;
 				$(".bottom li").removeClass("selected").eq(current).delay(500).addClass("selected");

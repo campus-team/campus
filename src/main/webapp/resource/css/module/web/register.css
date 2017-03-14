@@ -1,0 +1,101 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	margin:0;
+	padding:0;
+	background:linear-gradient(#63A2EF, #FFF);
+	text-align:center;
+}
+
+.main {
+	width:350px;
+	height:400px;
+	border:1px #c3c3c3 solid;
+	border-radius:8px;
+	box-shadow:4px 4px 2px 0px rgba(33,33,33,0.5); 
+	font-family:'楷体';
+	background:linear-gradient(#E8F2FD, #FFF);
+	position:absolute;
+	top:20%;
+	left:50%;
+	margin-left:-175px;
+}
+
+form {
+	width:250px;
+	margin:0px auto;
+	margin-top:5px;
+	margin-bottom:25px;
+}
+
+.title {
+	margin-top:25px;
+}
+
+.title span {
+	font-size:1.3em;
+	vertical-align:top;
+	padding:5px;
+	padding-left:15px;
+	display:inline-block;
+	font-weight:normal;
+	margin-bottom:12px;
+}
+
+.style span {
+	cursor:pointer;
+	display:inline-block;
+	margin:0 15px;
+	margin-bottom:12px;
+}
+
+.select,.style span:hover {
+	text-decoration:underline;
+	color:#F60;
+}
+
+.main label {
+	display:inline-block;
+	width:80px;
+	float:left;
+	margin:0;
+	padding:5px 0;
+	text-align:right;
+	cursor:pointer;
+}
+
+label,input {
+	margin-bottom:12px;
+}
+
+input {
+	padding:5px;
+}
+
+input:focus {
+	background-color:#E2EDFC;
+}
+
+input[type="submit"], .send{
+	width:190px;
+	height:35px;
+	border-radius:10px;
+	background-color:#0079F2;
+	border:2px #44A2FF solid;
+	font-size:1.2em;
+	cursor:pointer;
+	font-family:'宋体';
+	font-weight:bold;
+	color:#FFF;
+}
+
+.send, input.send {
+	width:115px;
+	margin-right:20px;
+	font-size:1em;
+}
+
+input.send {
+	margin-right:0;
+}

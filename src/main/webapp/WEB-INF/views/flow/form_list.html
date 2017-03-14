@@ -44,8 +44,8 @@
 	</div>
 	<div>
 		<form action="$ctx/form_folder/form_folder_save.htm" method="post">
-			<input id="name" name="name" placeholder="输入文件名称"/>
-			<input id="sequence" name="sequence" placeholder="输入文件名称"/>
+			<input id="name" name="name" placeholder="输入文件名称" class="form_folder_name"/>
+			<input id="sequence" name="sequence" placeholder="输入文件序号（整数）" class="form_folder_sequence"/>
 			<select name="parent_id" >
 				<option value="">请选择</option>
 				#foreach($first_folder in $!first_folders)

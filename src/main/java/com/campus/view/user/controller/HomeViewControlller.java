@@ -13,8 +13,8 @@ import com.campus.core.mv.JModelAndView;
 import com.campus.core.tools.CommUtil;
 
 @Controller
-@RequestMapping("/my")
-public class MyViewControlller {
+@RequestMapping("/user")
+public class HomeViewControlller {
 
 	@RequestMapping("/home.htm")
 	public ModelAndView home(HttpServletRequest request, HttpServletResponse response){

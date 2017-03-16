@@ -25,6 +25,8 @@ public class JModelAndView extends ModelAndView{
 			super.setViewName("flow/"+viewName);
 		}else if(type==10){
 			super.setViewName("user/"+viewName);
+		}else if(type==11){
+			super.setViewName("user/student/"+viewName);
 		}
 		if(request != null){
 			String ctx = CommUtil.getContextPath(request);
@@ -42,6 +44,8 @@ public class JModelAndView extends ModelAndView{
 			super.setViewName("flow/"+viewName);
 		}else if(type==10){
 			super.setViewName("user/"+viewName);
+		}else if(type==11){
+			super.setViewName("user/student/"+viewName);
 		}
 	}
 }

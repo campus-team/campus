@@ -1,10 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>发布活动</title>
+<meta charset="utf-8">
+<title>添加活动</title>
+<link rel="stylesheet" type="text/css" href="$ctx/resource/css/module/user/student/activity_add.css" />
+<script type="text/javascript" charset="utf-8" src="$ctx/resource/plugin/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="$ctx/resource/plugin/ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="$ctx/resource/plugin/ueditor/lang/zh-cn/zh-cn.js"></script>
 </head>
 <body>
-
+<form method="post" action="" class="new">
+	<span>活动标题</span>
+	<input type="text" class="title" required />
+    <span>活动内容</span>
+    <script type="text/plain" id="editor" class="content"></script>
+    <input type="submit" class="submit" value="发布" />
+</form>
+<script type="text/javascript">
+	var _ctx = '$ctx';
+</script>
+<script type="text/javascript" src="$ctx/resource/plugin/requirejs/require.js"></script>
+<script type="text/javascript" src="$ctx/resource/js/require-config.js"></script>
+<script type="text/javascript">
+	require([ "./user/student/activity_add" ], function(page) {
+		var p = new page();
+		p.main();
+		window.page = p;
+	});
+</script>
 </body>
 </html>

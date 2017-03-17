@@ -1,10 +1,106 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>个人动态</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="$ctx/resource/css/module/user/student/dynamic.css" />
+<link rel="stylesheet" href="$ctx/resource/css/module/user/student/thickbox.css" />
+<title>活动</title>
 </head>
 <body>
-
+	<div class="new">
+    	<h3>发布一个新动态吧</h3>
+    	<textarea id="text"></textarea>
+        <div class="emotion"><img src="$ctx/resource/img/module/web/face1.png" /><span>表情</span></div>
+        <div class="picture"><img src="$ctx/resource/img/module/web/picture1.png" /><input id="ccc" type="file" /><span>图片</span></div>
+        <input type="submit" class="submit" value="发布" />
+    </div>
+	<div class="show">
+    	<div class="message">
+        	<span class="photo"><img src="$ctx/resource/img/module/web/photo.png" /></span>
+            <span class="name">小明</span>
+            <span class="time">3月15日 13:46</span>
+            <div class="content">
+            	<p>这是一条消息这是一条消息这是一条消息</p>
+                <a href="$ctx/resource/img/module/web/pku.jpg" class="thickbox"><img src="$ctx/resource/img/module/web/pku.jpg"></a>
+                <a href="$ctx/resource/img/module/web/hzic.jpg" class="thickbox"><img src="$ctx/resource/img/module/web/hzic.jpg"></a>
+                <a href="$ctx/resource/img/module/web/tsinghua.jpg" class="thickbox"><img src="$ctx/resource/img/module/web/tsinghua.jpg"></a>
+            </div>
+            <span class="comments"><img src="$ctx/resource/img/module/web/comments1.png" /><span class="num" data-flag="0">2</span></span>
+            <span class="good"><img src="$ctx/resource/img/module/web/good1.png" /><span class="num">0</span></span>
+            <div class="other_comments">
+            	<ul>
+                	<li>
+                    	<div>
+                        	<span class="other_photo"><img src="$ctx/resource/img/module/web/other_photo.png" /></span>
+                            <span class="other_name">小强</span>
+                            <span class="other_time">3月15日 13:50</span>
+                            <p class="other_comment">这是一条回复这是一条回复这是一条回复这是一条回复这是一条回复</p>
+                        </div>
+                    </li>
+                	<li>
+                    	<div>
+                        	<span class="other_photo"><img src="$ctx/resource/img/module/web/other_photo.png" /></span>
+                            <span class="other_name">小强</span>
+                            <span class="other_time">3月15日 13:50</span>
+                            <p class="other_comment">这是一条回复这是一条回复这是一条回复这是一条回复这是一条回复这是一条回复这是一条回复这是一条回复这是一条回复这是一条回复这是一条回复</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="my_comment">
+            	<input type="text" class="input" placeholder="评论" />
+                <input type="submit" class="submit" value="发表" />
+            </div>
+        </div>
+        <div class="message">
+        	<span class="photo"><img src="$ctx/resource/img/module/web/photo.png" /></span>
+            <span class="name">小明</span>
+            <span class="time">3月15日 13:46</span>
+            <div class="content">
+            	<p>这是一条消息这是一条消息这是一条消息这是一条消息这是一条消息这是一条消息这是一条消息这是一条消息这是一条消息这是一条消息这是一条消息这是一条消息这是一条消息这是一条消息这是一条消息这是一条消息</p>
+            </div>
+            <span class="comments"><img src="$ctx/resource/img/module/web/comments1.png" /><span class="num">2</span></span>
+            <span class="good"><img src="$ctx/resource/img/module/web/good1.png" /><span class="num" data-flag="0">0</span></span>
+            <div class="other_comments">
+            	<ul>
+                	<li>
+                    	<div>
+                        	<span class="other_photo"><img src="$ctx/resource/img/module/web/other_photo.png" /></span>
+                            <span class="other_name">小强</span>
+                            <span class="other_time">3月15日 13:50</span>
+                            <p class="other_comment">这是一条回复这是一条回复这是一条回复这是一条回复这是一条回复</p>
+                        </div>
+                    </li>
+                	<li>
+                    	<div>
+                        	<span class="other_photo"><img src="$ctx/resource/img/module/web/other_photo.png" /></span>
+                            <span class="other_name">小强</span>
+                            <span class="other_time">3月15日 13:50</span>
+                            <p class="other_comment">这是一条回复这是一条回复这是一条回复这是一条回复这是一条回复这是一条回复这是一条回复这是一条回复这是一条回复这是一条回复这是一条回复</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="my_comment">
+            	<input type="text" class="input" placeholder="评论" />
+                <input type="submit" class="submit" value="发表" />
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    	var _ctx = '$ctx';
+	</script>
+	<script type="text/javascript" src="$ctx/resource/plugin/requirejs/require.js"></script>
+	<script type="text/javascript" src="$ctx/resource/js/require-config.js"></script>
+	<script type="text/javascript" src="$ctx/resource/plugin/other/jquery.js"></script>
+	<script type="text/javascript" src="$ctx/resource/plugin/other/jquery.thickbox.js"></script>
+	<script type="text/javascript" src="$ctx/resource/plugin/other/jquery.qqFace.js"></script>
+	<script type="text/javascript">
+		require([ "./user/student/dynamic" ], function(page) {
+			var p = new page();
+			p.main();
+			window.page = p;
+		});
+	</script>
 </body>
 </html>

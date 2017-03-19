@@ -2,30 +2,19 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>主页</title>
+<title>我的页面</title>
+<link rel="stylesheet" href="$ctx/resource/css/common/common.css" />
+<link rel="stylesheet" href="$ctx/resource/css/common/page.css" />
 <link rel="stylesheet" href="$ctx/resource/css/module/user/home.css" />
 </head>
 <body>
 	<header id="top">
-		<img src="$ctx/resource/img/module/web/logo2.png" /><span
-			class="title">学生组织协同工作</span>
-		<div class="nav">
-			<ul>
-				<li class="select"><img
-					src="$ctx/resource/img/module/web/example2.png" />个人办公</li>
-				<li><img src="$ctx/resource/img/module/web/example2.png" />流程管理</li>
-				<li><img src="$ctx/resource/img/module/web/example2.png" />用户管理</li>
-			</ul>
-		</div>
-		<input type="image" src="$ctx/resource/img/module/web/search.png"
-			value="搜索" /><input type="searcf" placeholder="全文搜索" />
-		<ul>
-			<li><a href="$ctx/index.htm">首页</a></li>
-			<li><a href="$ctx/user/home.htm">我的</a></li>
-		</ul>
+		$!HttpInclude.include("/header.htm")
 	</header>
-
 	<section id="left">
+		$!HttpInclude.include("/user/home_left.htm")
+	</section>
+	<!-- <section id="left">
 		<nav>
 			<ul>
 				<li>个人办公</li>
@@ -94,9 +83,9 @@
 					</ul></li>
 			</ul>
 		</nav>
-	</section>
+	</section> -->
 
-	<iframe id="right" name="content"></iframe>
+	<iframe id="content" name="content"></iframe>
 	<script type="text/javascript">
 		var _ctx = '$ctx';
 	</script>

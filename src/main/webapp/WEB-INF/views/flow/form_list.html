@@ -7,88 +7,87 @@
 <link type="text/css" rel="stylesheet" href="$ctx/resource/css/common/frame.css"/>
 </head>
 <body>
-	<div class="panel-left">
-		<div class="panel-left-header">
-			表单模板
-		</div>
-		<div class="panel-left-body">
-			<div class="folder">
-				<a class="all-folder">所有文件夹</a>
-				<ul>
-					#foreach($first_folder in $!first_folders)
-					<li>
-						<a class="first-level-folder">$!first_folder.name</a>
-						<ul>
-							#foreach($second_folder in $!first_folder.children)
-							<li>
-								<a class="second-level-folder">$!second_folder.name</a>
-							<li>
-							#end
-						</ul>
-					</li>
-					#end
-					<!-- <li>
-						<a class="first-level-folder">一级文件夹</a>
-						<ul>
-							<li>
-								<a class="second-level-folder">二级文件夹</a>
-							<li>
-						</ul>
-					</li>
-					<li>
-						<a class="first-level-folder">一级文件夹</a>
-					</li> -->
-				</ul>
+	<div class="layout-top">
+	
+	</div>
+	<div class="layout-body">
+		<div class="panel-left panel_left">
+			<div class="panel-left-header">
+				<div class="title">表单模板 <i class="iconfont icon-zuozhankai fr icon_toleft" style="margin-right:5px;"></i></div>
+			</div>
+			<div class="panel-left-body">
+				<div class="folder">
+					<span style="margin-bottom: 5px;display: block;">
+						<i class="iconfont icon-jianhao icon_first_level"></i>
+						<a class="all-folder"><i class="iconfont icon-wenjianjia"></i>所有文件夹</a>
+					</span>
+					<ul class="first_level">
+						#foreach($first_folder in $!first_folders)
+						<li>
+							<span style="position:relative; padding-left:20px;margin-bottom: 5px;display: block;">
+								#if($!first_folder.children.size()>0)
+								<i class="iconfont icon-jiahao icon_second_level" style="position: absolute;top:2px;"></i>
+								#end
+								<a class="first-level-folder"><i class="iconfont icon-wenjianjia"></i>$!first_folder.name</a>
+							</span>
+							<ul class="hide second_level" >
+								#foreach($second_folder in $!first_folder.children)
+								<li>
+									<a class="second-level-folder"><i class="iconfont icon-wenjianjia"></i>$!second_folder.name</a>
+								<li>
+								#end
+							</ul>
+						</li>
+						#end
+					</ul>
+				</div>
 			</div>
 		</div>
-<<<<<<< HEAD
+		<div class="panel-main panel_main" style="left:200px;">
+			<div>
+				<form action="$ctx/form_folder/form_folder_save.htm" method="post">
+					<input id="name" name="name" placeholder="输入文件名称" class="form_folder_name"/>
+					<input id="sequence" name="sequence" placeholder="输入文件序号" class="form_folder_sequence"/>
+					<select name="parent_id" class="form_folder_parent_id">
+						<option value="">请选择</option>
+						#foreach($first_folder in $!first_folders)
+						<option value="$!first_folder.id">$!first_folder.name</option>
+						#end
+					</select>
+					<button type="button" class="btn_form_folder_add" onclick="page.form_folder_add()">提交</button>
+				</form>
+			</div>
+			<table border="0" algin="center" cellpadding="0" cellspacing="0">
+				<th>
+					<td>表单名称</td>
+					<td>x显示名称</td>
+					<td>创建人</td>
+					<td>创建时间</td>
+					<td>类别</td>
+					<td>操作</td>
+				</th>
+				<tr>
+					<td>名称</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+		</div>
 	</div>
-	<div>
-		<form action="$ctx/form_folder/form_folder_save.htm" method="post">
-			<input id="name" name="name" placeholder="输入文件名称" class="form_folder_name"/>
-			<input id="sequence" name="sequence" placeholder="输入文件序号（整数）" class="form_folder_sequence"/>
-			<select name="parent_id" >
-				<option value="">请选择</option>
-				#foreach($first_folder in $!first_folders)
-				<option value="$!first_folder.id">$!first_folder.name</option>
-				#end
-			</select>
-			<button type="button" class="btn_form_folder_add">提交</button>
-		</form>
-=======
->>>>>>> branch 'master' of https://github.com/campus-team/campus.git
-	</div>
-	<div>
-		<form action="$ctx/form_folder/form_folder_save.htm" method="post">
-			<input id="name" name="name" placeholder="输入文件名称"/>
-			<input id="sequence" name="sequence" placeholder="输入文件名称"/>
-			<select name="parent_id" >
-				<option value="">请选择</option>
-				#foreach($first_folder in $!first_folders)
-				<option value="$!first_folder.id">$!first_folder.name</option>
-				#end
-			</select>
-			<button type="button" class="btn_form_folder_add">提交</button>
-		</form>
-	</div>
-	<table border="0" algin="center" cellpadding="0" cellspacing="0">
-		<th>
-			<td>表单名称</td>
-			<td>x显示名称</td>
-			<td>创建人</td>
-			<td>创建时间</td>
-			<td>类别</td>
-			<td>操作</td>
-		</th>
-		<tr>
-			<td>名称</td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-	</table>
-	
 </body>
+<script type="text/javascript">
+	var _ctx = '$ctx';
+</script>
+<script type="text/javascript"  src="$ctx/resource/plugin/requirejs/require.js"></script>
+<script type="text/javascript" src="$ctx/resource/js/require-config.js"></script>
+<script type="text/javascript">
+	require(["./flow/form_list"],function(page){
+		var p = new page();
+		p.main();
+		window.page = p;
+	});
+</script>
 </html>

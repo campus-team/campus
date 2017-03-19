@@ -17,8 +17,10 @@ import com.campus.core.tools.CommUtil;
 import com.campus.core.tools.Md5Encrypt;
 import com.campus.core.tools.WebFormHelper;
 import com.campus.foundation.domain.Student;
+import com.campus.foundation.domain.Teacher;
 import com.campus.foundation.domain.User;
 import com.campus.foundation.service.IStudentService;
+import com.campus.foundation.service.ITeacherService;
 import com.campus.foundation.service.IUserService;
 
 @Controller
@@ -30,6 +32,9 @@ public class LoginViewController {
 	@Autowired
 	private IStudentService studentService;
 	
+	@Autowired
+	private ITeacherService teacherService;
+	
 	@RequestMapping("/login.htm")
 	public ModelAndView login(HttpServletRequest request){
 		JModelAndView mv = new JModelAndView("login.html", 0, request);
@@ -37,8 +42,8 @@ public class LoginViewController {
 	}
 	
 	@RequestMapping("/login_submit.htm")
-	public ModelAndView login_submit(HttpServletRequest request,HttpServletResponse response, String userName, String password, String user_type){
-		JModelAndView mv = new JModelAndView("index.html", 0, request);
+	public ModelAndView login_submit(HttpServletRequest request, HttpServletResponse response, String userName, String password, String user_type){
+		JModelAndView mv = new JModelAndView("index.html", 0, request, response);
 		User user = this.userService.getObjByProperty("userName", userName);
 		if(user != null){
 			password = Md5Encrypt.md5(password);
@@ -62,6 +67,13 @@ public class LoginViewController {
 		}
 		return mv;
 	}
+	
+	@RequestMapping("/logout.htm")
+	public ModelAndView logout(HttpServletRequest request){
+		JModelAndView mv = new JModelAndView("login.html", 0, request);
+		WebUtils.setSessionAttribute(request, "current_user_id", null);
+		return mv;
+	} 
 	
 	@RequestMapping("/register.htm")
 	public ModelAndView register(HttpServletRequest request){
@@ -109,6 +121,19 @@ public class LoginViewController {
 		return mv;
 	}
 	
+	@RequestMapping("/register_test.htm")
+	public ModelAndView register_test(HttpServletRequest request){
+		JModelAndView mv = new JModelAndView("login.html", 0, request);
+		User user = new User();
+		user.setUserName("teacher");
+		user.setPassword(Md5Encrypt.md5("123456"));
+		user.setUser_type(Integer.valueOf(1));
+		this.userService.save(user);
+		Teacher teacher = new Teacher();
+		teacher.setUser(user);
+		this.teacherService.save(teacher);
+		return mv;
+	}
 	@RequestMapping("/err.htm")
 	public ModelAndView err(HttpServletRequest request, String user_type){
 		BusinessException e = new BusinessException("发生错误");

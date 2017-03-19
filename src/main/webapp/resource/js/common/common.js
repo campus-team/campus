@@ -4,6 +4,8 @@
 
 define(['jquery'],function($){
 	
+	"use strict";
+	
 	var common = function(){}
 	
 	var method = {

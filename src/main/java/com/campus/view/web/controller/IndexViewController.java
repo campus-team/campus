@@ -28,9 +28,12 @@ public class IndexViewController {
 	@RequestMapping("/index.htm")
 	public ModelAndView index(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mv = new JModelAndView("index.html",0 , request, response);
-		Student stu = this.studentService.getObjById(1);
-		mv.addObject("stu", stu); 
-		mv.addObject("aa", "测试");
+		return mv;
+	}
+	
+	@RequestMapping("/header.htm")
+	public ModelAndView header(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mv = new JModelAndView("header.html",0 , request, response);
 		return mv;
 	}
 	

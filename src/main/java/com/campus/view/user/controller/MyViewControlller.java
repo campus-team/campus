@@ -3,6 +3,7 @@ package com.campus.view.user.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -11,11 +12,17 @@ import org.springframework.web.util.WebUtils;
 import com.campus.core.exception.BusinessException;
 import com.campus.core.mv.JModelAndView;
 import com.campus.core.tools.CommUtil;
+import com.campus.core.tools.HttpInclude;
+import com.campus.foundation.domain.User;
+import com.campus.foundation.service.IUserService;
 
 @Controller
 @RequestMapping("/my")
 public class MyViewControlller {
 
+	/*@Autowired
+	private IUserService userService;
+	
 	@RequestMapping("/home.htm")
 	public ModelAndView home(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mv = new JModelAndView("home.html",10 , request, response);
@@ -27,5 +34,6 @@ public class MyViewControlller {
 			throw e;
 		}
 		return mv;
-	}
+	}*/
+	
 }
